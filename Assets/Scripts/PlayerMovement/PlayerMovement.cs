@@ -8,9 +8,10 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
     public class PlayerMovement : MonoBehaviour
     {
         #region VariablesNeededToRun
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Rigidbody2D rigidBody2D;
         [SerializeField] private float moveSpeed = 8f;
         [SerializeField] private float jumpPower = 7f;
+        private float horizontalKeyInput;
         private bool isGrounded;
         #endregion
 
@@ -18,7 +19,7 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
         void Start()
         {
             // This will add the players rigidbody to a variable
-            rb = GetComponent<Rigidbody2D>();
+            rigidBody2D = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
@@ -29,9 +30,13 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
 
         private void Update()
         {
-            // This will allow the player to jump
+            // This will check for the movement keys
+            CheckForMovementKeys();
+
+            // This will check for the jump input and make it jump
             JumpPlayer();
         }
+
 
         // These will set the variable isGrounded to true whenever
         // the player is colliding with the ground to ensure it can't
@@ -46,6 +51,10 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
             isGrounded = false;
         }
 
+        private void CheckForMovementKeys()
+        {
+            horizontalKeyInput = Input.GetAxis("Horizontal");
+        }
 
         /// <summary>
         /// This will move the player using the player's rigidbody velocity
@@ -53,8 +62,7 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
         /// </summary>
         private void MovePlayer()
         {
-            float direction = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
+            rigidBody2D.velocity = new Vector2(horizontalKeyInput * moveSpeed, rigidBody2D.velocity.y);
         }
 
 
@@ -67,7 +75,7 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
         {
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpPower);
             }
         }
     }
