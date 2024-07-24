@@ -11,7 +11,7 @@ namespace SAE_24T2.ReusableGameFramework.Player.Movement
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float moveSpeed = 8f;
         [SerializeField] private float jumpPower = 7f;
-        [SerializeField] private bool isGrounded;
+        private bool isGrounded;
         #endregion
 
         // Start is called before the first frame update
