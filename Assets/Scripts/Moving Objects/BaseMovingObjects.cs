@@ -6,26 +6,27 @@ using UnityEngine;
 namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 {
 
-    // This script allows objects attached to this script to move to points (transforms) repeatedly 
+    // this script allows objects attached to this script to move to points (transforms) repeatedly 
     public class BaseMovingObjects : MonoBehaviour
     {
         
         #region Variables
-        [SerializeField] private int currentWaypoint = 0;
+        [SerializeField] private int currentWaypoint = 0; // the current waypoint number in the list 
         [SerializeField] private int distanceFromPoint; // distance from point to perform an action
 
         
         private bool reverseWaypoints; // goes backwards in the list
-        [SerializeField] private bool fowardWaypoints; // ONLY TURN ONE ON - goes fowards in the list
+        [SerializeField] private bool fowardWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - goes fowards in the list
 
-        [SerializeField] private bool randomWaypoints; // ONLY TURN ONE ON - for making points random
-        [SerializeField] private bool fowardsOnlyWaypoints; // ONLY TURN ONE ON - makes points go in order (foward)
-        
-        [SerializeField] private float objectMovementSpeed; // set this variable in the inspector
-        [SerializeField] private float objectRotationSpeed; // set this variable in the inspector - for objects that look at something   
+        [SerializeField] private bool randomWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - for making points random
+        [SerializeField] private bool fowardsOnlyWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - makes points go in order (foward)
+
+        [SerializeField] private float objectMovementSpeed; // (set this variable in the inspector) - speed the object moves
+        [SerializeField] private float objectRotationSpeed; // (set this variable in the inspector) - for objects that look at something   
 
         [SerializeField] private GameObject[] placedWaypoints; // where the points are placed in the inspector
         #endregion
+
         void Start()
         {
             objectMovementSpeed = 5;
@@ -37,11 +38,11 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
         private void FixedUpdate()
         {
 
-            ObjectMovement();
+            ObjectMovementMethod();
 
         }
 
-        public void ObjectMovement()
+        public void ObjectMovementMethod() // this tells the objects how to move to different points
         {
             if (Vector2.Distance(placedWaypoints[currentWaypoint].transform.position, transform.position) < distanceFromPoint) // checks if object is close enough to the point
             {
@@ -103,8 +104,13 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 
             }
 
-            transform.position = Vector2.MoveTowards(transform.position, placedWaypoints[currentWaypoint].transform.position, Time.deltaTime * objectMovementSpeed); // moves script object to current point
+            MoveObjectToPoints();
 
+        }
+
+        public void MoveObjectToPoints() // this moves the object to the targeted waypoint
+        {
+            transform.position = Vector2.MoveTowards(transform.position, placedWaypoints[currentWaypoint].transform.position, Time.deltaTime * objectMovementSpeed); // moves script object to current point
         }
 
     }
