@@ -6,7 +6,6 @@ using UnityEngine;
 namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 {
 
-
     // This script allows objects attached to this script to move to points (transforms) repeatedly 
     public class BaseMovingObjects : MonoBehaviour
     {
@@ -15,11 +14,12 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
         [SerializeField] private int currentWaypoint = 0;
         [SerializeField] private int distanceFromPoint; // distance from point to perform an action
 
-        [SerializeField] private bool fowardWaypoints; // goes fowards in the list
+        
         private bool reverseWaypoints; // goes backwards in the list
+        [SerializeField] private bool fowardWaypoints; // ONLY TURN ONE ON - goes fowards in the list
 
-        [SerializeField] private bool randomWaypoints; // for making points random
-        [SerializeField] private bool fowardsOnlyWaypoints; // makes points go in order (foward)
+        [SerializeField] private bool randomWaypoints; // ONLY TURN ONE ON - for making points random
+        [SerializeField] private bool fowardsOnlyWaypoints; // ONLY TURN ONE ON - makes points go in order (foward)
         
         [SerializeField] private float objectMovementSpeed; // set this variable in the inspector
         [SerializeField] private float objectRotationSpeed; // set this variable in the inspector - for objects that look at something   
