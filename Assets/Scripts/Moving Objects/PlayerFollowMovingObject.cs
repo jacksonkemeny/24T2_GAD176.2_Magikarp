@@ -9,19 +9,19 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.FollowObject
     public class PlayerFollowMovingObject : MonoBehaviour
     {
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other) 
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player")) // checks for the player tag
             {
-                other.transform.SetParent(transform);
+                other.transform.SetParent(transform); // connects the player to the object in order to follow its position when entering
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player")) // checks for player tag
             {
-                other.transform.SetParent(null);
+                other.transform.SetParent(null); // disconnects the player from the object when leaving
             }
         }
 

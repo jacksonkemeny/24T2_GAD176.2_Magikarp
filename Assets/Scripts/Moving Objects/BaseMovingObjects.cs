@@ -16,10 +16,10 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 
         
         private bool reverseWaypoints; // goes backwards in the list
-        [SerializeField] private bool fowardWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - goes fowards in the list
+        [SerializeField] private bool forwardWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - goes forwards in the list
 
         [SerializeField] private bool randomWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - for making points random
-        [SerializeField] private bool fowardsOnlyWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - makes points go in order (foward)
+        [SerializeField] private bool forwardsOnlyWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - makes points go in order (forward)
 
         [SerializeField] private float objectMovementSpeed; // (set this variable in the inspector) - speed the object moves
         [SerializeField] private float objectRotationSpeed; // (set this variable in the inspector) - for objects that look at something   
@@ -50,7 +50,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 
                 // object will go in reverse when reaching the end of the list vice versa
                 #region Reversing Waypoints
-                if (fowardWaypoints == true && reverseWaypoints == false && randomWaypoints == false && fowardsOnlyWaypoints == false) // foward in the list
+                if (forwardWaypoints == true && reverseWaypoints == false && randomWaypoints == false && forwardsOnlyWaypoints == false) // foward in the list
                 {
                     currentWaypoint++;
 
@@ -58,11 +58,11 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
                     {
                         currentWaypoint -= 1;
                         reverseWaypoints = true;
-                        fowardWaypoints = false;
+                        forwardWaypoints = false;
                     }
                 }
 
-                else if (reverseWaypoints == true && randomWaypoints == false && fowardsOnlyWaypoints == false && fowardWaypoints == false)
+                else if (reverseWaypoints == true && randomWaypoints == false && forwardsOnlyWaypoints == false && forwardWaypoints == false)
                 {
                     currentWaypoint--;
 
@@ -70,7 +70,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
                     {
                         currentWaypoint += 1;
                         reverseWaypoints = false;
-                        fowardWaypoints = true;
+                        forwardWaypoints = true;
 
                     }
                 }
@@ -78,7 +78,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 
                 // object will randomly go to points placed in the list
                 #region Random Waypoints
-                else if (randomWaypoints == true && reverseWaypoints == false && fowardsOnlyWaypoints == false && fowardWaypoints == false)
+                else if (randomWaypoints == true && reverseWaypoints == false && forwardsOnlyWaypoints == false && forwardWaypoints == false)
                 {
                     currentWaypoint = Random.Range(0, placedWaypoints.Length);
                 }
@@ -86,7 +86,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 
                 // object will only go foward and will restart when reaching the end of the list
                 #region Fowards Only Waypoints
-                else if (fowardsOnlyWaypoints == true && reverseWaypoints == false && randomWaypoints == false && fowardWaypoints == false)
+                else if (forwardsOnlyWaypoints == true && reverseWaypoints == false && randomWaypoints == false && forwardWaypoints == false)
                 {
                     currentWaypoint++;
                     if (currentWaypoint >= placedWaypoints.Length) // resets to the starting point
