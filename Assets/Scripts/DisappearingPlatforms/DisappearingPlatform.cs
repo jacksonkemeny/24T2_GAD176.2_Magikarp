@@ -24,7 +24,10 @@ public class DisappearingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag == "Player")
+        {
+            StartCoroutine(FadePlatformInOutRoutine());
+        }
     }
 
     private IEnumerator FadePlatformInOutRoutine()
@@ -32,11 +35,6 @@ public class DisappearingPlatform : MonoBehaviour
         while (platformColor.a > 0)
         {
             platformColor.a = Mathf.MoveTowards(platformColor.a, 0, Time.deltaTime * fadeSpeed);
-            yield return null;
-        }
-
-        if (platformColor.a == 0)
-        {
             platform.gameObject.SetActive(false);
             yield return null;
         }
