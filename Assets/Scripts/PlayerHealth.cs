@@ -19,7 +19,7 @@ namespace SAE_24T2.ReusableGameFramework.Player.Health
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (currentPlayerHealth <= 0)
             {

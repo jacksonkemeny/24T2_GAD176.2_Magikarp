@@ -19,15 +19,15 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
         [SerializeField] private float playerInvincibilityinSeconds = 2f; // how long the player is invincible for after an attack
         [SerializeField] private float playerDistance; // how far the player is
 
-        [SerializeField] private bool canTurretHurtPlayer; // true or false if turrent can hurt player
-        [SerializeField] private bool canRaySeeTarget = false; // determines if the raycast can see the player
+        [SerializeField] private bool canThisTurretHurtPlayer; // true or false if turrent can hurt player
+        [SerializeField] private bool canRaySeeTarget; // determines if the raycast can see the player
         #endregion
         void Start()
         {
             turretViewDistance = 10;
-            canTurretHurtPlayer = true;
+            canThisTurretHurtPlayer = true;
             turretDamage = 20;
-            
+            canRaySeeTarget = false;
         }
 
         void Update()
@@ -38,18 +38,18 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
 
         private void FixedUpdate()
         {
-            if (playerDistance < turretViewDistance)
+            if (playerDistance < turretViewDistance) // can turret see player?
             {
                 // Debug.Log("Running Functions");
                 Raycast();
-                DamagePlayer();
+                
             }
 
         }
 
         public void DamagePlayer() // used to damage the player
         {
-            if (canTurretHurtPlayer != false && playerHealth.currentPlayerHealth > 0) // checks if the player can be hit
+            if (canThisTurretHurtPlayer != false && playerHealth.currentPlayerHealth > 0) // checks if the player can be hit
             {
                 StartCoroutine(TurretAttackPlayer());
             } 
@@ -60,12 +60,12 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
 
         private IEnumerator TurretAttackPlayer() // turrent hurts that player
         {
-            canTurretHurtPlayer = false; // player cannot be hit
+            canThisTurretHurtPlayer = false; // player cannot be hit
             playerHealth.currentPlayerHealth -= turretDamage; // damage player
 
-            yield return new WaitForSeconds(playerInvincibilityinSeconds);
+            yield return new WaitForSeconds(playerInvincibilityinSeconds); // wait for the invinbility frames to be able to get hit by the turrent
 
-            canTurretHurtPlayer = true; // player can be hit
+            canThisTurretHurtPlayer = true; // player can be hit
         }
 
         void Raycast() // player detection 
@@ -82,6 +82,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
                     if (canRaySeeTarget) // if true debug green line
                     {
                         Debug.DrawRay(transform.position, playerLocation.transform.position - transform.position, Color.green);
+                        DamagePlayer();
                     }
                     else // if false debug red line
                     {
