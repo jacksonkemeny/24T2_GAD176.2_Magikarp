@@ -22,14 +22,14 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
         [SerializeField] private bool forwardsOnlyWaypoints; // (set this variable in the inspector) ONLY TURN ONE ON - makes points go in order (forward)
 
         [SerializeField] private float objectMovementSpeed; // (set this variable in the inspector) - speed the object moves
-        [SerializeField] private float objectRotationSpeed; // (set this variable in the inspector) - for objects that look at something   
+        [SerializeField] private float objectRotationSpeed; // not used
 
         [SerializeField] private GameObject[] placedWaypoints; // where the points are placed in the inspector
         #endregion
 
         void Start()
         {
-            objectMovementSpeed = 5;
+            
             distanceFromPoint = 1; // this should not change
 
             Debug.Log("This is the BaseMovingObject script"); // debug the name of this script
