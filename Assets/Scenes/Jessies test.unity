@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154943674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68b671933140084c81bd09e0545497c, type: 3}
+  m_Script: {fileID: 11500000, guid: 892f14cfdd2891649b4f23190e2d689f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 50
@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 154943674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: -2.93, z: 0}
+  m_LocalPosition: {x: 2.18, y: -2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -608,7 +608,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2047473205}
   - component: {fileID: 2047473204}
-  - component: {fileID: 2047473203}
   - component: {fileID: 2047473202}
   - component: {fileID: 2047473201}
   m_Layer: 0
@@ -708,19 +707,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2047473203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047473200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d893a87c73c4aa04fae55177c73009b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageZoneDamage: 20
 --- !u!212 &2047473204
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -837,7 +823,7 @@ MonoBehaviour:
   DamageZoneSpawnPoint: {fileID: 2091987908}
   shootInterval: 2
   projectileSpeed: 5
-  velocitySequence: {x: -3, y: 5}
+  velocitySequence: {x: -6, y: 8}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
