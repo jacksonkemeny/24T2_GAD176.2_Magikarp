@@ -11,6 +11,13 @@ namespace SAE_24T2.GAD176.ReusableGameFramework.Player.Stats
     {
 
         public float playerHealth = 50f;
+
+        public void TakeDamage(int damage)
+        {
+            playerHealth -= damage;
+            Debug.Log($" takes {damage} damage. Health is now {playerHealth}.");
+        }
+
         // Start is called before the first frame update
         void Start()
         {

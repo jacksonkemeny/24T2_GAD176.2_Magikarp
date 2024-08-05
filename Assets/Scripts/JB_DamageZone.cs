@@ -5,17 +5,10 @@ using SAE_24T2.GAD176.ReusableGameFramework.Player.Stats;
 
 public class JB_DamageZone : MonoBehaviour
 {
-    [SerializeField] float damageZoneDamage = 20;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<JB_PlayerStats>())
-        {
-            other.gameObject.GetComponent<JB_PlayerStats>().playerHealth -= damageZoneDamage;
-            Debug.Log("HIt!");
-        }
-    }
+    [SerializeField] private float damageZoneDamage = 20;
+    
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // on collision with player, player will take damage 
 
     {
         Debug.Log("wont Hit!");
@@ -37,10 +30,7 @@ public class JB_DamageZone : MonoBehaviour
 
 
 
-    private void damageZoneMovement()
-    {
-
-    }
+   
 
 
         
