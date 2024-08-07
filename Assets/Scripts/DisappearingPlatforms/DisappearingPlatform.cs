@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class DisappearingPlatform : MonoBehaviour
 {
-    [SerializeField] private Transform platform;
-    [SerializeField] private Color platformColor;
-    [SerializeField] private float fadeSpeed = 1.5f;
+    private Color platformColor;
+    [SerializeField] private float fadeSpeed = 3f;
+    [SerializeField] private float fadeInDelayInSeconds = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
-        platform = GetComponent<Transform>();
         platformColor = GetComponent<SpriteRenderer>().color;
     }
 
@@ -35,15 +34,21 @@ public class DisappearingPlatform : MonoBehaviour
         while (platformColor.a > 0)
         {
             platformColor.a = Mathf.MoveTowards(platformColor.a, 0, Time.deltaTime * fadeSpeed);
-            platform.gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().color = platformColor;
             yield return null;
         }
 
-        yield return new WaitForSeconds(3);
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(fadeInDelayInSeconds);
+
+        GetComponent<BoxCollider2D>().enabled = true;
 
         while (platformColor.a < 1)
         {
             platformColor.a = Mathf.MoveTowards(platformColor.a, 1, Time.deltaTime * fadeSpeed);
+            GetComponent<SpriteRenderer>().color = platformColor;
+            yield return null;
         }
 
         yield return null;
