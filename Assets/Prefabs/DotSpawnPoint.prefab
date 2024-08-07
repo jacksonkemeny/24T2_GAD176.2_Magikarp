@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  damageZonePrefab: {fileID: 1860221554804056148, guid: b28c252a52bd5e74f8f48d436a711c2d, type: 3}
-  DamageZoneSpawnPoint: {fileID: 8422335324496811803}
+  projectilePrefab: {fileID: 1860221554804056148, guid: b28c252a52bd5e74f8f48d436a711c2d, type: 3}
+  projectileSpawnPoint: {fileID: 8422335324496811803}
   velocitySequence: {x: 3, y: 5}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SAE_24T2.GAD176.ReusableGameFramework.Player.Stats;
 
-public class JB_DamageZone : MonoBehaviour
+public class JB_Projectile : MonoBehaviour
 {
     [SerializeField] private float damageZoneDamage = 20;
     
@@ -16,6 +16,7 @@ public class JB_DamageZone : MonoBehaviour
         {
             collision.gameObject.GetComponent<JB_PlayerStats>().playerHealth -= damageZoneDamage;
             Debug.Log("HIt!");
+            
         }
     }
     //private void OnCollisionEnter2D(Collision2D collision)

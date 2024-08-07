@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JB_DamageZoneMovement : MonoBehaviour
+public class JB_ProjectileSpawner : MonoBehaviour
 {
     [SerializeField] protected GameObject player;
-    [SerializeField] protected GameObject damageZonePrefab;
-    [SerializeField] protected Transform DamageZoneSpawnPoint;
+    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected Transform projectileSpawnPoint;
     private float shootInterval = 2f;  // Time interval between shots
     private float projectileSpeed = 5f;  // speed pf projectile
     private float shootTimer;
@@ -19,7 +19,7 @@ public class JB_DamageZoneMovement : MonoBehaviour
 
     void Shoot()
     {
-        GameObject damageZone = Instantiate(damageZonePrefab, DamageZoneSpawnPoint.position, Quaternion.identity);
+        GameObject damageZone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
       //  Vector2(velocity up and slightly to the left)
       damageZone.GetComponent<Rigidbody2D>().velocity = velocitySequence;
     }
@@ -40,6 +40,7 @@ public class JB_DamageZoneMovement : MonoBehaviour
             {
                 Shoot();
                 shootTimer = shootInterval;
+                
             }
 
         }

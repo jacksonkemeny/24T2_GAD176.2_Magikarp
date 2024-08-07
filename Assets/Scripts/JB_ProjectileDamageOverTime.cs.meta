@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 178fa7750a3142c44b061540a538fd3b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {fileID: 6461521003305934051, guid: 6d51b06446195b94cb07fad4634fd3ba, type: 3}
+  - damageZonePrefab: {fileID: 1860221554804056148, guid: b28c252a52bd5e74f8f48d436a711c2d, type: 3}
+  - DamageZoneSpawnPoint: {instanceID: 0}
+  - target: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
