@@ -13,7 +13,7 @@ public class JB_DamageOverTime : JB_DamageZoneMovement
 
     private void Start()
     {
-        StartCoroutine(ApplyDamageOverTime());
+     //   StartCoroutine(ApplyDamageOverTime());
     }
 
     private System.Collections.IEnumerator ApplyDamageOverTime()
