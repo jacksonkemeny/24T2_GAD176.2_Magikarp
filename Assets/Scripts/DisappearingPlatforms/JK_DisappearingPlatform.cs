@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DisappearingPlatform : MonoBehaviour
+public class JK_DisappearingPlatform : MonoBehaviour
 {
     private Color platformColor;
     [SerializeField] private float fadeSpeed = 3f;
