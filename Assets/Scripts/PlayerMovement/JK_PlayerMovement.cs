@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SAE_24T2.ReusableGameFramework.Player.Movement
 {
-    public class PlayerMovement : MonoBehaviour
+    public class JK_PlayerMovement : MonoBehaviour
     {
         #region VariablesNeededToRun
         [SerializeField] private Rigidbody2D rigidBody2D;
