@@ -267,11 +267,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2245982962459048267, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
   m_PrefabInstance: {fileID: 437471717}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &437471720 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3320923520004944894, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
-  m_PrefabInstance: {fileID: 437471717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &437471721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +282,7 @@ MonoBehaviour:
   moveSpeed: 1
   detectionDistance: 5
   playerLocation: {fileID: 351912235}
-  pickUpItemOneRigidBody: {fileID: 437471720}
+  pickupItemRB: {fileID: 0}
   playerTag: Player
 --- !u!50 &797622326 stripped
 Rigidbody2D:
@@ -1018,13 +1013,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8051728334353830194}
-    - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8051728334353830193}
     - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8051728334353830192}
+    - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8051728334353830196}
   m_SourcePrefab: {fileID: 100100000, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
 --- !u!4 &8051728334353830190 stripped
 Transform:
@@ -1098,7 +1093,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8051728334353830194
+--- !u!114 &8051728334353830196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1113,11 +1108,11 @@ MonoBehaviour:
   moveSpeed: 1
   detectionDistance: 5
   playerLocation: {fileID: 351912235}
-  pickUpItemOneRigidBody: {fileID: 8051728334353830193}
+  pickupItemRB: {fileID: 8051728334353830193}
   playerTag: Player
-  followOffset: {x: 1, y: 1}
-  bounceAmplitude: 0.5
-  bounceFrequency: 2
+  followOffset: {x: 1.5, y: 1}
+  bounceAmplitude: 0.3
+  bounceFrequency: 10
 --- !u!1001 &8920359697182306433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1207,13 +1202,8 @@ MonoBehaviour:
   moveSpeed: 1
   detectionDistance: 5
   playerLocation: {fileID: 351912235}
-  pickUpItemOneRigidBody: {fileID: 8920359697182306438}
+  pickupItemRB: {fileID: 0}
   playerTag: Player
---- !u!50 &8920359697182306438 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8761521442253212779, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-  m_PrefabInstance: {fileID: 8920359697182306433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

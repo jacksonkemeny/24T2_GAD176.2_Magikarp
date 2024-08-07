@@ -11,7 +11,7 @@ public class ItemPickupMain : MonoBehaviour
         [SerializeField] protected float moveSpeed = 1f; 
         [SerializeField] protected float detectionDistance = 5f; 
         public Transform playerLocation;
-        [SerializeField] protected Rigidbody2D pickUpItemOneRigidBody;
+        [SerializeField] protected Rigidbody2D pickupItemRB;
         [SerializeField] protected string playerTag = "Player";
 
         // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class ItemPickupMain : MonoBehaviour
             {
                 Debug.LogError("Player location is not set.");
             }
-            if (pickUpItemOneRigidBody == null)
+            if (pickupItemRB == null)
             {
                 Debug.LogError("Rigidbody2D is not set.");
             }
@@ -31,7 +31,7 @@ public class ItemPickupMain : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-            if (playerLocation != null && pickUpItemOneRigidBody != null)
+            if (playerLocation != null && pickupItemRB != null)
             {
                 MoveTowardPlayer(playerLocation.position);
             }
@@ -42,7 +42,7 @@ public class ItemPickupMain : MonoBehaviour
             if (Vector2.Distance(transform.position, playerPosition) < detectionDistance)
             {
                 Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
-                pickUpItemOneRigidBody.AddForce(direction * moveSpeed);
+                pickupItemRB.AddForce(direction * moveSpeed);
             }
         }
 

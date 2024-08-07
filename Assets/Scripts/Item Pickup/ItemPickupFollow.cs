@@ -8,10 +8,10 @@ namespace GAD176_ItemPickup_Base
 public class ItemPickupFollow : ItemPickupMain
     {
 
-    [SerializeField] private Vector2 followOffset = new Vector2(2, 2);
+    [SerializeField] private Vector2 followOffset = new Vector2(1.5f, 1);
     private bool isFollowingPlayer = false;
-    [SerializeField] private float bounceAmplitude = 0.1f; 
-    [SerializeField] private float bounceFrequency = 50f;
+    [SerializeField] private float bounceAmplitude = 0.3f; 
+    [SerializeField] private float bounceFrequency = 10f;
     private float bounceTimer = 0f;
 
         // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class ItemPickupFollow : ItemPickupMain
 
         base.Update();
 
-        if (!isFollowingPlayer && playerLocation != null && pickUpItemOneRigidBody != null)
+        if (!isFollowingPlayer && playerLocation != null && pickupItemRB != null)
         {
             MoveTowardPlayer(playerLocation.position);
         }
@@ -55,7 +55,7 @@ public class ItemPickupFollow : ItemPickupMain
         {
             isFollowingPlayer = true;
             transform.SetParent(playerLocation);
-            pickUpItemOneRigidBody.isKinematic = true; // Make the Rigidbody kinematic to follow the player smoothly
+            pickupItemRB.isKinematic = true; // Make the Rigidbody kinematic to follow the player smoothly
         }
     }
 
