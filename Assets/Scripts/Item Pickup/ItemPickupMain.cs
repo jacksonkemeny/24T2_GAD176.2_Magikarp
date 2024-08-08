@@ -16,6 +16,8 @@ public class ItemPickupMain : MonoBehaviour
 
         // Start is called before the first frame update
         void Start()
+
+
     {
             if (playerLocation == null)
             {
@@ -45,11 +47,6 @@ public class ItemPickupMain : MonoBehaviour
                 pickupItemRB.AddForce(direction * moveSpeed);
             }
         }
-
-
-
-   
-
 
     }
 }
