@@ -16,6 +16,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.MoveRadnomly
         [SerializeField] private float forceIntervalInSeconds; // time between each random force (reccomended 1-20s)
 
 
+        // Start is called before the first frame update
         void Start()
         {
             StartCoroutine(RandomForceMove());
