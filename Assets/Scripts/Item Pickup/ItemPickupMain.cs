@@ -13,12 +13,15 @@ public class ItemPickupMain : MonoBehaviour
         public Transform playerLocation;
         [SerializeField] protected Rigidbody2D pickupItemRB;
         [SerializeField] protected string playerTag = "Player";
+        [SerializeField] protected LayerMask detectionLayerMask;
+        
+
+
+        private bool itemPickedUp = false;
 
         // Start is called before the first frame update
-        void Start()
-
-
-    {
+    public void Start()    
+      {
             if (playerLocation == null)
             {
                 Debug.LogError("Player location is not set.");
@@ -28,25 +31,41 @@ public class ItemPickupMain : MonoBehaviour
                 Debug.LogError("Rigidbody2D is not set.");
             }
 
-        }
+      }
 
     // Update is called once per frame
     public void Update()
-    {
+      {
             if (playerLocation != null && pickupItemRB != null)
             {
-                MoveTowardPlayer(playerLocation.position);
+                DetectPlayerAndMove();
             }
-        }
+      }
+
+
+   
+
+    protected virtual void DetectPlayerAndMove()
+       {
+            Vector2 direction = (playerLocation.position - transform.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionDistance, detectionLayerMask);
+
+            if (hit.collider != null && hit.collider.CompareTag(playerTag))
+            {
+                MoveTowardPlayer(hit.point);
+
+            }
+       }    
 
     protected virtual void MoveTowardPlayer(Vector2 playerPosition)
-        {
+       {
             if (Vector2.Distance(transform.position, playerPosition) < detectionDistance)
             {
                 Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
                 pickupItemRB.AddForce(direction * moveSpeed);
             }
-        }
-
+       }    
     }
+
+
 }

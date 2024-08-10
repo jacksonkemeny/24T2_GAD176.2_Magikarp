@@ -13,12 +13,19 @@ public class ItemPickupFollow : ItemPickupMain
     [SerializeField] private float bounceAmplitude = 0.3f; 
     [SerializeField] private float bounceFrequency = 10f;
     private float bounceTimer = 0f;
+    private ItemPickupTextManager itemPickupTextManager;
+
 
         // Start is called before the first frame update
         void Start()
     {
-        
-    }
+            base.Start();
+            itemPickupTextManager = FindObjectOfType<ItemPickupTextManager>();  // Find the ItemPickupTextManager in the scene
+            if (itemPickupTextManager == null)
+            {
+                Debug.LogError("ItemPickupTextManager not found!");
+            }
+        }
 
     // Update is called once per frame
     public void Update()
@@ -47,17 +54,34 @@ public class ItemPickupFollow : ItemPickupMain
             targetPosition.y += bounceOffset;
 
             transform.position = targetPosition;
+
+            if (!isFollowingPlayer)
+            {
+                UIPopup();
+
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag(playerTag))
         {
-            isFollowingPlayer = true;
-            transform.SetParent(playerLocation);
-            pickupItemRB.isKinematic = true; // Make the Rigidbody kinematic to follow the player smoothly
-        }
-    }
+            if (collision.gameObject.CompareTag(playerTag))
+            {
+                isFollowingPlayer = true;
+                transform.SetParent(playerLocation);
+                pickupItemRB.isKinematic = true;
+                Debug.Log("You have a follower!");
 
-}
+                
+            }
+        }
+        private void UIPopup()
+        {
+            if (itemPickupTextManager != null)
+            {
+                itemPickupTextManager.ShowPopup("You have acquired a follower!", 3f); 
+            }
+        }
+
+
+    }
 }

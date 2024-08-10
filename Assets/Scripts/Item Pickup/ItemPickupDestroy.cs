@@ -26,5 +26,7 @@ namespace GAD176_ItemPickup_Base
                 Destroy(gameObject);
             }
         }
+
+         
     }
 }
