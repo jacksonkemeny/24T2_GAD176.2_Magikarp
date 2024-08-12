@@ -10,7 +10,7 @@ public class JB_ProjectileDamageOverTime : JB_Projectile
     private int damagePerTick = 5;
     private float duration = 5f;
     private float tickInterval = 1f;
-
+    private bool isDotOnPlayer;
     private void Start()
     {
         
@@ -19,9 +19,11 @@ public class JB_ProjectileDamageOverTime : JB_Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-
+        
         if (collision.GetComponent<JB_PlayerStats>() == null)
             return;
+        Debug.Log("found player");
+        isDotOnPlayer = true;
         StopCoroutine(ApplyDamageOverTime());
        target = collision.GetComponent<JB_PlayerStats>();
         StartCoroutine(ApplyDamageOverTime());
@@ -35,6 +37,9 @@ public class JB_ProjectileDamageOverTime : JB_Projectile
             Debug.Log("Hello");
             target.TakeDamage(damagePerTick);
             yield return new WaitForSeconds(tickInterval);
+
         }
+        isDotOnPlayer = false;
+        Debug.Log("Dot is false");
     }
 }

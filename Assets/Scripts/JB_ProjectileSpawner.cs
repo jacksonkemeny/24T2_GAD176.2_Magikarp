@@ -17,7 +17,7 @@ public class JB_ProjectileSpawner : MonoBehaviour
         shootTimer = shootInterval;
     }
 
-    void Shoot()
+   public void Shoot()
     {
         GameObject damageZone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
       //  Vector2(velocity up and slightly to the left)
