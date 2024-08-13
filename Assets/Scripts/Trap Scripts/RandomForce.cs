@@ -10,11 +10,14 @@ namespace SAE_24T2.ReusableGameFramework.Traps.MoveRadnomly
     public class RandomForce : MonoBehaviour
     {
 
+        #region Variables
+
         private int randomNumber; // used for a condition based on the number picked
 
         [SerializeField] private float objectPower; // power the object will move (reccomended 10-75)
         [SerializeField] private float forceIntervalInSeconds; // time between each random force (reccomended 1-20s)
 
+        #endregion
 
         void Start()
         {
