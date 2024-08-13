@@ -26,7 +26,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.Projectile
 
         private void OnDisable()
         {
-            ProjectileHitPlayer.AddListener(ProjectileTriggered); // removed on disabled to prevent spam  
+            ProjectileHitPlayer.RemoveListener(ProjectileTriggered); // removed on disabled to prevent spam  
         }
 
         void Start()
