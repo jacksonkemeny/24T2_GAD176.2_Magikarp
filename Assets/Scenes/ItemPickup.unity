@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 45166400}
   - component: {fileID: 45166399}
   - component: {fileID: 45166398}
-  - component: {fileID: 45166402}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -172,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -192,8 +191,8 @@ Canvas:
   m_GameObject: {fileID: 45166397}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1757127148}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -226,19 +225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &45166402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45166397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994b97e4a4250f043a9385533f17350e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myText: {fileID: 2117885138}
 --- !u!1001 &351912234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +236,10 @@ PrefabInstance:
     - target: {fileID: 383152946499032019, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 383152946499032019, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 383152946499032019, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
       propertyPath: m_TagString
@@ -322,8 +312,12 @@ PrefabInstance:
       value: PickUpTwo
       objectReference: {fileID: 0}
     - target: {fileID: 2245982962459048267, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245982962459048267, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3022344839664882732, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -400,9 +394,26 @@ MonoBehaviour:
   playerLocation: {fileID: 351912235}
   pickupItemRB: {fileID: 437471723}
   playerTag: Player
-  detectionLayerMask:
+  PlayerDetection:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  textDisplay: {fileID: 2117885140}
+  onItemPickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 932393239}
+        m_TargetAssemblyTypeName: SoundEffect, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  soundEffectPlayer: {fileID: 932393239}
 --- !u!50 &437471723 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3320923520004944894, guid: 750d937b15189d240b3f9a6412518cfb, type: 3}
@@ -413,6 +424,51 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6556265642810072680, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
   m_PrefabInstance: {fileID: 351912234}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932393238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932393240}
+  - component: {fileID: 932393239}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &932393239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932393238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8193f97317346514d912e54a035954b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: 89e863fdc0eb58a4a8e34faa05d47e70, type: 3}
+--- !u!4 &932393240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932393238}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.758231, y: 0.24669106, z: -0.061187744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968166840
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1054,7 @@ GameObject:
   - component: {fileID: 1757127149}
   - component: {fileID: 1757127148}
   - component: {fileID: 1757127147}
+  - component: {fileID: 1757127150}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1079,6 +1136,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757127150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757127146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1820602229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2117885136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994b97e4a4250f043a9385533f17350e, type: 3}
+  m_Script: {fileID: 11500000, guid: 425f4a4b64b3fc64dbcefd256f496d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myText: {fileID: 2117885138}
@@ -1348,6 +1449,10 @@ PrefabInstance:
       value: PickUpThree
       objectReference: {fileID: 0}
     - target: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1364,9 +1469,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8051728334353830196}
-    - targetCorrespondingSourceObject: {fileID: 4208312132987014901, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8051728334353830200}
   m_SourcePrefab: {fileID: 100100000, guid: 638c3ffc3c124894e9bd041e96fef57e, type: 3}
 --- !u!4 &8051728334353830190 stripped
 Transform:
@@ -1457,25 +1559,29 @@ MonoBehaviour:
   playerLocation: {fileID: 351912235}
   pickupItemRB: {fileID: 8051728334353830193}
   playerTag: Player
-  detectionLayerMask:
+  PlayerDetection:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  textDisplay: {fileID: 2117885140}
+  onItemPickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 932393239}
+        m_TargetAssemblyTypeName: SoundEffect, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  soundEffectPlayer: {fileID: 932393239}
   followOffset: {x: 1.5, y: 1}
   bounceAmplitude: 0.3
   bounceFrequency: 10
---- !u!114 &8051728334353830200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8051728334353830191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994b97e4a4250f043a9385533f17350e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myText: {fileID: 2117885138}
 --- !u!1001 &8920359697182306433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1487,6 +1593,10 @@ PrefabInstance:
     - target: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
       propertyPath: m_Name
       value: PickUpOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
       propertyPath: m_IsActive
@@ -1567,9 +1677,26 @@ MonoBehaviour:
   playerLocation: {fileID: 351912235}
   pickupItemRB: {fileID: 8920359697182306438}
   playerTag: Player
-  detectionLayerMask:
+  PlayerDetection:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  textDisplay: {fileID: 2117885140}
+  onItemPickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 932393239}
+        m_TargetAssemblyTypeName: SoundEffect, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  soundEffectPlayer: {fileID: 932393239}
 --- !u!50 &8920359697182306438 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8761521442253212779, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
@@ -1584,4 +1711,5 @@ SceneRoots:
   - {fileID: 1124991198}
   - {fileID: 1590602587}
   - {fileID: 1820602232}
+  - {fileID: 932393240}
   - {fileID: 45166401}

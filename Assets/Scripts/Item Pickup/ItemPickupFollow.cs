@@ -13,18 +13,13 @@ public class ItemPickupFollow : ItemPickupMain
     [SerializeField] private float bounceAmplitude = 0.3f; 
     [SerializeField] private float bounceFrequency = 10f;
     private float bounceTimer = 0f;
-    private ItemPickupTextManager itemPickupTextManager;
 
 
         // Start is called before the first frame update
         void Start()
     {
             base.Start();
-            itemPickupTextManager = FindObjectOfType<ItemPickupTextManager>();  // Find the ItemPickupTextManager in the scene
-            if (itemPickupTextManager == null)
-            {
-                Debug.LogError("ItemPickupTextManager not found!");
-            }
+
         }
 
     // Update is called once per frame
@@ -35,14 +30,14 @@ public class ItemPickupFollow : ItemPickupMain
 
         if (!isFollowingPlayer && playerLocation != null && pickupItemRB != null)
         {
-            MoveTowardPlayer(playerLocation.position);
-        }
+                DetectPlayerAndMove();
+            }
         else if (isFollowingPlayer && playerLocation != null)
         {
             FollowPlayerWithBounce();
         }
     }
-
+        //Adds a bouncing animation once the item has been collected and begins following. 
     private void FollowPlayerWithBounce()
         {
             
@@ -55,33 +50,34 @@ public class ItemPickupFollow : ItemPickupMain
 
             transform.position = targetPosition;
 
-            if (!isFollowingPlayer)
-            {
-                UIPopup();
-
-            }
         }
-
-        private void OnCollisionEnter2D(Collision2D collision)
+        //Collider that detects the player and checks that the prefab is 'following'. Also destroys RB to ensure the prefab doesn't affect player movement. 
+    private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag(playerTag))
             {
+
                 isFollowingPlayer = true;
                 transform.SetParent(playerLocation);
-                pickupItemRB.isKinematic = true;
+                Destroy(pickupItemRB); 
                 Debug.Log("You have a follower!");
-
-                
+                FollowerPopUp();
             }
         }
-        private void UIPopup()
+
+        //Shows a UI popup for a set amount of time. 
+    private void FollowerPopUp()
         {
-            if (itemPickupTextManager != null)
+            if (textDisplay != null)
             {
-                itemPickupTextManager.ShowPopup("You have acquired a follower!", 3f); 
+                StartCoroutine(textDisplay.ShowTextForDuration("You have a new follower!", 5f)); 
             }
-        }
+            else
+            {
+                Debug.LogError("TextDisplay is not assigned!");
+            }
 
+        }
 
     }
 }
