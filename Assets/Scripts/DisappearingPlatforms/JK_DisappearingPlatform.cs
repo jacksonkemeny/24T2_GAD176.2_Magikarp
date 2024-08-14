@@ -33,6 +33,8 @@ namespace SAE_24T2.ReusableGameFramework.Platform.DisappearingPlatform
 
         private IEnumerator FadePlatformInOutRoutine()
         {
+            Debug.Log("Fading Platform");
+
             while (platformColor.a > 0)
             {
                 platformColor.a = Mathf.MoveTowards(platformColor.a, 0, Time.deltaTime * fadeSpeed);
