@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5448035593829124284}
   m_Layer: 0
-  m_Name: Chained Object
+  m_Name: NA_Chained Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

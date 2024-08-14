@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SAE_24T2.ReusableGameFramework.Traps
 {
-    public class SelfDestruct : MonoBehaviour
+    public class NA_SelfDestruct : MonoBehaviour
     {
 
         // this script automatically self destructs after timer duration

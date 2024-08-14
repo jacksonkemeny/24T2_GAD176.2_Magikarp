@@ -7,7 +7,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.PressurePlate
 {
 
     // this script detects when the player stands on the pressure plate trap
-    public class PressurePlate : MonoBehaviour
+    public class NA_PressurePlate : MonoBehaviour
     {
 
         #region Variables

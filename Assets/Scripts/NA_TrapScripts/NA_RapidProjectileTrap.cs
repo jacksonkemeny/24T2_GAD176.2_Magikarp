@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SAE_24T2.ReusableGameFramework.Traps.Projectile
 {
-    public class RapidProjectileTrap : ProjectileTrap
+    public class NA_RapidProjectileTrap : NA_ProjectileTrap
     {
 
         #region Variables

@@ -7,7 +7,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.MoveRadnomly
 {
 
     // this script randomly moves the connected object in a random direction
-    public class RandomForce : MonoBehaviour
+    public class NA_RandomForce : MonoBehaviour
     {
 
         #region Variables

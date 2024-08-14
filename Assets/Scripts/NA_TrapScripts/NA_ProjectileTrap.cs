@@ -9,7 +9,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.Projectile
 {
 
     // this is a parent script that helps with repeatedly shooting a projectile
-    public class ProjectileTrap : MonoBehaviour
+    public class NA_ProjectileTrap : MonoBehaviour
     {
 
         #region Variables

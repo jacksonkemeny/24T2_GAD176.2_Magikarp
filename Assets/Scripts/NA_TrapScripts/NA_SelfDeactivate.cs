@@ -7,7 +7,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps
 {
 
     // this script is used to deactivate something that has been enabled automatically
-    public class SelfDeactivate : MonoBehaviour
+    public class NA_SelfDeactivate : MonoBehaviour
     {
 
         #region Variables

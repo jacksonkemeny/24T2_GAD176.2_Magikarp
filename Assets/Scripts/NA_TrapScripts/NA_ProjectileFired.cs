@@ -9,7 +9,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.Projectile
 {
 
     // this is used on the projectile to give it a force to move
-    public class ProjectileFired : MonoBehaviour
+    public class NA_ProjectileFired : MonoBehaviour
     {
         #region Variables
 
