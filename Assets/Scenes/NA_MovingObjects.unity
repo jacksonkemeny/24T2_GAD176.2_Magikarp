@@ -252,10 +252,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 383152946499032019, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1979171778}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
 --- !u!1 &502214511
 GameObject:
@@ -628,20 +625,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 383152946499032019, guid: 33ed15aef28d51e449b5297857c378fb, type: 3}
   m_PrefabInstance: {fileID: 377517181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1979171778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979171772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c8c7945930a91489ef4ed85d79c9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayerHealth: 100
-  currentPlayerHealth: 0
 --- !u!4 &1981214359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6361272205741371084, guid: 241353cdd37fc3846b1ef851d6b2fc6f, type: 3}
@@ -926,11 +909,27 @@ PrefabInstance:
     - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 1979171778}
+      objectReference: {fileID: 0}
     - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
       propertyPath: playerLocation
       value: 
       objectReference: {fileID: 1979171772}
+    - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
+      propertyPath: playerStatHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: b0bc8bc7b7bc0ec47871ce2fb29a45e9, type: 2}
+    - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
+      propertyPath: scriptPlayerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: b0bc8bc7b7bc0ec47871ce2fb29a45e9, type: 2}
+    - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
+      propertyPath: playerStat.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 806477952381585031, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
+      propertyPath: playerStat.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b0bc8bc7b7bc0ec47871ce2fb29a45e9, type: 2}
     - target: {fileID: 1347828657902089258, guid: 0c64d811d053d694aa73010426a3193d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.63

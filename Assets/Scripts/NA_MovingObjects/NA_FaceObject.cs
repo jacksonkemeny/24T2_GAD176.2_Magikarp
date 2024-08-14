@@ -10,12 +10,14 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.FaceObject
     {
 
         #region Variables
+
         [SerializeField] GameObject targetToLookAt; // the object that will be looked at | manually add this in the inspector
 
         [SerializeField] private bool lookFromTop; // (set this variable in the inspector) ONLY TURN ONE ON - top point is closest to target
         [SerializeField] private bool lookFromBottom; // (set this variable in the inspector) ONLY TURN ONE ON - bottom point is closest to target
         [SerializeField] private bool lookFromLeft; // (set this variable in the inspector) ONLY TURN ONE ON - left point is closest to target
         [SerializeField] private bool lookFromRight; // (set this variable in the inspector) ONLY TURN ONE ON - right point is closest to target
+
         #endregion
 
         void Start()

@@ -11,17 +11,20 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
     public class NA_TurretAttack : MonoBehaviour
     {
         #region Variables
+
+        public NA_ScriptablePlayerStats scriptPlayerStats;
+
         [SerializeField] private int turretViewDistance; // distance the turrent can see
         [SerializeField] private int turretDamage; // damage of the turret
 
         [SerializeField] private GameObject playerLocation; // player's location | manually add this in the inspector
-        [SerializeField] private NA_PlayerHealth playerHealth; // player health script | manually add this in the inspector
 
         [SerializeField] private float playerInvincibilityinSeconds = 2f; // how long the player is invincible for after an attack
         [SerializeField] private float playerDistance; // how far the player is
 
         [SerializeField] private bool canThisTurretHurtPlayer; // true or false if turrent can hurt player
         [SerializeField] private bool canRaySeeTarget; // determines if the raycast can see the player
+
         #endregion
         void Start()
         {
@@ -50,7 +53,8 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
 
         public void DamagePlayer() // used to damage the player
         {
-            if (canThisTurretHurtPlayer != false && playerHealth.currentPlayerHealth > 0) // checks if the player can be hit
+            
+            if (canThisTurretHurtPlayer != false && scriptPlayerStats.currentPlayerHealth > 0) // checks if the player can be hit
             {
                 StartCoroutine(TurretAttackPlayer());
             } 
@@ -62,8 +66,11 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
         private IEnumerator TurretAttackPlayer() // turrent hurts that player
         {
             canThisTurretHurtPlayer = false; // player cannot be hit
-            playerHealth.currentPlayerHealth -= turretDamage; // damage player
 
+            //playerHealth.currentPlayerHealth -= turretDamage; // damage player
+
+                  
+            scriptPlayerStats.DamagePlayer(turretDamage);
             yield return new WaitForSeconds(playerInvincibilityinSeconds); // wait for the invinbility frames to be able to get hit by the turrent
 
             canThisTurretHurtPlayer = true; // player can be hit
