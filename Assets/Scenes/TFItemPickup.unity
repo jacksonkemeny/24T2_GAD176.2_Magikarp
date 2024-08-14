@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8193f97317346514d912e54a035954b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0672d78b2bb22a94d8a05ab459893234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &968166840
@@ -1432,14 +1432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUpOne
       objectReference: {fileID: 0}
-    - target: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6511047381338691562, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.645856
@@ -1480,64 +1472,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975451810590790657, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
+      propertyPath: textDisplay
+      value: 
+      objectReference: {fileID: 2117885140}
+    - target: {fileID: 8975451810590790657, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
+      propertyPath: playerLocation
+      value: 
+      objectReference: {fileID: 351912235}
+    - target: {fileID: 8975451810590790657, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
+      propertyPath: soundEffectPlayer
+      value: 
+      objectReference: {fileID: 932393239}
+    - target: {fileID: 8975451810590790657, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
+      propertyPath: onItemPickedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 932393239}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8920359697182306436}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
 --- !u!4 &8920359697182306434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6511047381338691562, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-  m_PrefabInstance: {fileID: 8920359697182306433}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8920359697182306435 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 495526212398980055, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
-  m_PrefabInstance: {fileID: 8920359697182306433}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8920359697182306436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8920359697182306435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d710f3f31dc4ed48940d501aa483873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  detectionDistance: 5
-  playerLocation: {fileID: 351912235}
-  pickupItemRB: {fileID: 8920359697182306438}
-  playerTag: Player
-  PlayerDetection:
-    serializedVersion: 2
-    m_Bits: 8
-  textDisplay: {fileID: 2117885140}
-  onItemPickedUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 932393239}
-        m_TargetAssemblyTypeName: SoundEffect, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  soundEffectPlayer: {fileID: 932393239}
---- !u!50 &8920359697182306438 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8761521442253212779, guid: 5c49b2448104b4e4c886691fe1c624af, type: 3}
   m_PrefabInstance: {fileID: 8920359697182306433}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

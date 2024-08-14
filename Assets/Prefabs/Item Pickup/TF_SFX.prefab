@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 425485066216558524}
   - component: {fileID: 9037093101070242009}
   m_Layer: 0
-  m_Name: SFX
+  m_Name: TF_SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8132112674757172036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8193f97317346514d912e54a035954b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0672d78b2bb22a94d8a05ab459893234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 89e863fdc0eb58a4a8e34faa05d47e70, type: 3}
+  soundEffect: {fileID: 0}

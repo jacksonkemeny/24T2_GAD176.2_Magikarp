@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GAD176_ItemPickup_Base
 { 
-public class ItemPickupFollow : ItemPickupMain
+public class TF_ItemPickupFollow : TF_ItemPickupMain
     {
 
     [SerializeField] private Vector2 followOffset = new Vector2(1.5f, 1);

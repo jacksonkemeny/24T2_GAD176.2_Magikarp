@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 namespace GAD176_ItemPickup_Base 
 { 
 
-public class ItemPickupMain : MonoBehaviour
+public class TF_ItemPickupMain : MonoBehaviour
 {
         [SerializeField] protected float moveSpeed = 1f; 
         [SerializeField] protected float detectionDistance = 5f; 
@@ -15,9 +15,9 @@ public class ItemPickupMain : MonoBehaviour
         [SerializeField] protected Rigidbody2D pickupItemRB;
         [SerializeField] protected string playerTag = "Player";
         [SerializeField] protected LayerMask PlayerDetection;
-        public TextDisplay textDisplay;
+        public TF_TextDisplay textDisplay;
         [SerializeField] private UnityEvent onItemPickedUp;
-        public SoundEffect soundEffectPlayer;
+        public TF_SoundEffect soundEffectPlayer;
 
         private bool itemPickedUp = false;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEffect : MonoBehaviour
+public class TF_SoundEffect : MonoBehaviour
 {
     public AudioClip soundEffect;
     private AudioSource audioSource;

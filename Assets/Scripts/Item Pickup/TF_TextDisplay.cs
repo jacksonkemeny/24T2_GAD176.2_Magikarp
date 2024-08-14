@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Numerics;
 
-public class TextDisplay : MonoBehaviour
+public class TF_TextDisplay : MonoBehaviour
 {
     public TextMeshProUGUI myText;
 

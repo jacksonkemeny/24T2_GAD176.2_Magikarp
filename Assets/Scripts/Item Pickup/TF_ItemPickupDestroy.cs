@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GAD176_ItemPickup_Base
 {
-    public class ItemPickupDestroy : ItemPickupMain
+    public class TF_ItemPickupDestroy : TF_ItemPickupMain
     {
         // Start is called before the first frame update
         void Start()
