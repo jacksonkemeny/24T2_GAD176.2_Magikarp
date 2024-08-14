@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JB_ProjectileSpawner : MonoBehaviour
@@ -11,6 +12,7 @@ public class JB_ProjectileSpawner : MonoBehaviour
     private float projectileSpeed = 5f;  // speed pf projectile
     private float shootTimer;
     [SerializeField] private Vector2 velocitySequence;
+    public JB_DotInfo TextUi;
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class JB_ProjectileSpawner : MonoBehaviour
         GameObject damageZone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
       //  Vector2(velocity up and slightly to the left)
       damageZone.GetComponent<Rigidbody2D>().velocity = velocitySequence;
+        damageZone.GetComponent<JB_ProjectileDamageOverTime>().dotInfo = TextUi;
     }
     
     void Update()

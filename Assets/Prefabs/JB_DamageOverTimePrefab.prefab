@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1860221554804056148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.280785, y: -1.2185326, z: 0}
+  m_LocalPosition: {x: 1042.6708, y: -147.85663, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,11 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178fa7750a3142c44b061540a538fd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  damageZonePrefab: {fileID: 0}
-  DamageZoneSpawnPoint: {fileID: 0}
-  velocitySequence: {x: 0, y: 0}
+  damageZoneDamage: 20
   target: {fileID: 0}
+  TextUi: {fileID: 0}
 --- !u!50 &-944272701709071058
 Rigidbody2D:
   serializedVersion: 4
