@@ -12,7 +12,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps.PressurePlate
 
         #region Variables
 
-        [SerializeField] protected GameObject trapTriggerText;
+        [SerializeField] protected GameObject trapTriggerText; // text that will be reactivated (should be set as inactive
 
         #endregion
 
@@ -26,9 +26,10 @@ namespace SAE_24T2.ReusableGameFramework.Traps.PressurePlate
                 if (distanceToTrap < 1) // checks if close enough to pressure plate
                 {
                     //Debug.Log("Player Activated Trap: " + gameObject.name);
-                    
-                    trapTriggerText.SetActive(true);
-
+                    if (trapTriggerText != null)
+                    {
+                        trapTriggerText.SetActive(true);
+                    }
                 }
             }
         }
