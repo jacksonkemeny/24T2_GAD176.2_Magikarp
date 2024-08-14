@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745752974413749375}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.38, y: -1.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundEffect, Assembly-CSharp
+        m_TargetAssemblyTypeName: SoundEffectPlayer, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
@@ -185,7 +185,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  soundEffectPlayer: {fileID: 0}
+  soundEffectPlayer: {fileID: 11400000, guid: 26acb46fd0a31a640abd5fc1345b2217, type: 2}
   followOffset: {x: 1.5, y: 1}
   bounceAmplitude: 0.3
   bounceFrequency: 10

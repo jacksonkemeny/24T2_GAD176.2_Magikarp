@@ -2,25 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TF_SoundEffect : MonoBehaviour
+[CreateAssetMenu(fileName = "SoundEffect", menuName = "ScriptableObjects/SoundEffect", order = 1)]
+public class TF_SoundEffect : ScriptableObject
 {
     public AudioClip soundEffect;
     private AudioSource audioSource;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Initialize(AudioSource source)
     {
-        //Initialising the audio source
-        audioSource = gameObject.AddComponent<AudioSource>();
+        // Set the AudioSource to the one passed from the calling object
+        audioSource = source;
         audioSource.clip = soundEffect;
         audioSource.playOnAwake = false;
-
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void PlaySound()
@@ -35,6 +28,6 @@ public class TF_SoundEffect : MonoBehaviour
         {
             Debug.Log("Audio Source not found");
         }
-
     }
 }
+
