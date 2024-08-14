@@ -6,11 +6,11 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.FaceObject
 {
 
     // this script allows objects attached to this script to look at a target of choice continuously 
-    public class FaceObject : MonoBehaviour
+    public class NA_FaceObject : MonoBehaviour
     {
 
         #region Variables
-        [SerializeField] GameObject targetToLookAt; // the object that will be looked at
+        [SerializeField] GameObject targetToLookAt; // the object that will be looked at | manually add this in the inspector
 
         [SerializeField] private bool lookFromTop; // (set this variable in the inspector) ONLY TURN ONE ON - top point is closest to target
         [SerializeField] private bool lookFromBottom; // (set this variable in the inspector) ONLY TURN ONE ON - bottom point is closest to target

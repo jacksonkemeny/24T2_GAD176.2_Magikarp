@@ -7,7 +7,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.BaseMovement
 {
 
     // this script allows objects attached to this script to move to points (transforms) repeatedly 
-    public class BaseMovingObjects : MonoBehaviour
+    public class NA_BaseMovingObjects : MonoBehaviour
     {
         
         #region Variables

@@ -8,14 +8,15 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
 {
 
     // this script is used for the turret attack the player
-    public class TurretAttack : MonoBehaviour
+    public class NA_TurretAttack : MonoBehaviour
     {
         #region Variables
         [SerializeField] private int turretViewDistance; // distance the turrent can see
         [SerializeField] private int turretDamage; // damage of the turret
 
-        [SerializeField] private GameObject playerLocation; // player's location
-        [SerializeField] private PlayerHealth playerHealth; // player health script
+        [SerializeField] private GameObject playerLocation; // player's location | manually add this in the inspector
+        [SerializeField] private NA_PlayerHealth playerHealth; // player health script | manually add this in the inspector
+
         [SerializeField] private float playerInvincibilityinSeconds = 2f; // how long the player is invincible for after an attack
         [SerializeField] private float playerDistance; // how far the player is
 
@@ -81,12 +82,12 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.TurretAttack
                     canRaySeeTarget = hit.collider.CompareTag("Player"); // true or false if the object has player tag
                     if (canRaySeeTarget) // if true debug green line
                     {
-                        Debug.DrawRay(transform.position, playerLocation.transform.position - transform.position, Color.green);
+                        Debug.DrawRay(transform.position, playerLocation.transform.position - transform.position, Color.green); // ray green if see target
                         DamagePlayer();
                     }
                     else // if false debug red line
                     {
-                        Debug.DrawRay(transform.position, playerLocation.transform.position - transform.position, Color.red);
+                        Debug.DrawRay(transform.position, playerLocation.transform.position - transform.position, Color.red); // ray red if cant see target
                     }                  
                 }
             }

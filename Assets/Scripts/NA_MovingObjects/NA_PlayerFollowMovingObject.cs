@@ -6,7 +6,7 @@ namespace SAE_24T2.ReusableGameFramework.MovingObjects.FollowObject
 {
 
     // this script allows the player to stay connected to the moving object using a 2D trigger
-    public class PlayerFollowMovingObject : MonoBehaviour
+    public class NA_PlayerFollowMovingObject : MonoBehaviour
     {
 
         private void OnTriggerEnter2D(Collider2D other) 
