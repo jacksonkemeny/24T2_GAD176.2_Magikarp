@@ -25,11 +25,18 @@ namespace SAE_24T2.ReusableGameFramework.Traps.PressurePlate
 
                 if (distanceToTrap < 1) // checks if close enough to pressure plate
                 {
-                    //Debug.Log("Player Activated Trap: " + gameObject.name);
-                    if (trapTriggerText != null)
+                    if (NA_PressurePlateManager.instance != null)
                     {
-                        trapTriggerText.SetActive(true);
+
+                        NA_PressurePlateManager.instance.APressurePlateIsActive();
+
+                        //Debug.Log("Player Activated Trap: " + gameObject.name);
+                        if (trapTriggerText != null)
+                        {
+                            trapTriggerText.SetActive(true);
+                        }
                     }
+
                 }
             }
         }

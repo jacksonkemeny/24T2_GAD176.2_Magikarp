@@ -13,6 +13,7 @@ namespace SAE_24T2.ReusableGameFramework.Traps
         #region Variables
 
         public int basicTimeToWaitInSeconds = 5; // basic time to wait
+        [SerializeField] private bool thisIsForPressureThisText; // turn on if for trap text
 
         #endregion
 
@@ -35,6 +36,13 @@ namespace SAE_24T2.ReusableGameFramework.Traps
         {
             // wait
             yield return new WaitForSeconds(timer);
+
+
+            if (thisIsForPressureThisText == true)
+            {
+                Debug.Log("this is for trap text");
+                NA_PressurePlateManager.instance.NoPressurePlateActive();              
+            }
 
             gameObject.SetActive(false);
 
