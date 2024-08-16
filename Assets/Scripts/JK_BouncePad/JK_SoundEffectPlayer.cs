@@ -10,6 +10,7 @@ namespace SAE_24T2.ReusableGameFramework.AudioPlayers.SFXPlayer
     {
         public JK_SoundEffect BouncePadSFX;
 
+        // This will setup the audio source found with the audioclip
         public void SetupAudioSource(AudioSource source)
         {
             source.clip = BouncePadSFX.soundEffect;
