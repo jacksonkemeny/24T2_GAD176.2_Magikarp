@@ -8,15 +8,18 @@ public class JB_ProjectileSpawner : MonoBehaviour
     [SerializeField] protected GameObject player;
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] protected Transform projectileSpawnPoint;
-    private float shootInterval = 2f;  // Time interval between shots
-    private float projectileSpeed = 5f;  // speed pf projectile
-    private float shootTimer;
+   [SerializeField] private float shootInterval = 2f;  // Time interval between shots
+   [SerializeField] private float projectileSpeed = 5f;  // speed pf projectile
+  [SerializeField]  private float shootTimer;
     [SerializeField] private Vector2 velocitySequence;
     public JB_DotInfo TextUi;
 
     void Start()
     {
+       
+        shootInterval = 2;
         shootTimer = shootInterval;
+        Debug.Log(shootInterval);
     }
 
    public void Shoot()
@@ -33,7 +36,7 @@ public class JB_ProjectileSpawner : MonoBehaviour
         if (player != null)
         {
 
-
+            
 
             // Countdown timer
 
@@ -41,9 +44,8 @@ public class JB_ProjectileSpawner : MonoBehaviour
 
             if (shootTimer <= 0)
             {
-                Shoot();
                 shootTimer = shootInterval;
-                
+                Shoot();
             }
 
         }
