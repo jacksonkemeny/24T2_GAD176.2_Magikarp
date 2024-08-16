@@ -18,10 +18,9 @@ public class TeleportPadEnd : TeleportPadStart
         PadEvents.OnTeleportPadEndPressed.RemoveListener(TeleportStart);
     }
 
-    // Start is called before the first frame update
     protected override void Start()
     {
-        teleportPadStartTransform = FindObjectOfType<TeleportPadStart>().transform;
+        teleportPadStartTransform = transform;
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
