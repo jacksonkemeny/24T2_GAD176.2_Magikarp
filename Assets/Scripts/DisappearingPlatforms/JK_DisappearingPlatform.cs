@@ -5,30 +5,33 @@ using UnityEngine;
 
 public class JK_DisappearingPlatform : MonoBehaviour
 {
+    #region All the variables needed to run
     private Color platformColor;
     [SerializeField] private float fadeSpeed = 3f;
     [SerializeField] private float fadeInDelayInSeconds = 2f;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        // This will set the platform color to be the sprite renderer's color
         platformColor = GetComponent<SpriteRenderer>().color;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // If the thing the platform hits is a player it will start the FadePlatformInOutRoutine
         if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(FadePlatformInOutRoutine());
         }
     }
 
+    /// <summary>
+    /// This will fade platform to the alpha of 0 and then it will turn off its collider
+    /// After it does this will then fade it back in while turning on the collider
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator FadePlatformInOutRoutine()
     {
         while (platformColor.a > 0)
